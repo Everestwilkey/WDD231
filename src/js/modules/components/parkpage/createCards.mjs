@@ -1,4 +1,4 @@
-import MediaCardTemplates from "../templates/MediaCardTemplate.mjs"
+import MediaCardTemplates from "../../templates/MediaCardTemplate.mjs"
 
 export default function CreateCards (info){
     var main =  document.querySelector(".info")

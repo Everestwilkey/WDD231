@@ -84,6 +84,10 @@
   --bs-link-hover-color: #003e6b;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
+  --alert-closure: #cb2027;
+  --alert-caution: #ed7e31;
+  --alert-information: #2451a9;
+  --alert-danger: #720f04;
 }
 
 /* Global styles */
@@ -360,4 +364,90 @@ svg {
     flex-direction: row; /* Change to row direction for larger screens */
     flex-wrap: wrap; /* Allow wrapping if necessary */
   }
+}
+/* Container for the 3x3 grid */
+#outputlist {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  grid-gap: 20px; /* Space between grid items */
+  padding: 20px;
+}
+
+/* Styling each card */
+.card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.card a button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card a button:hover {
+  background-color: #45a049;
+}
+
+/* Hover effect to scale up the card */
+.card:hover {
+  transform: scale(1.05);
+}
+.conditions {
+  margin: 1rem;
+}
+.alert h2 {
+  padding-left: 1rem;
+}
+.alert {
+  margin: 1rem;
+  padding-left: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+.alert-items {
+}
+.alert-information {
+  color: var(--alert-information);
+}
+.alert-danger {
+  color: var(--alert-danger);
+}
+.alert-closure {
+  color: var(--alert-closure);
+}
+.alert-caution {
+  color: var(--alert-caution);
+}
+.alert .icon {
+  margin: 1rem;
+}
+.alert svg {
+  height: 20%;
+  width: 20%;
+  background-color: transparent;
+}
+hr {
+  border-top: 3px solid black;
+}
+.current-details {
+  border: #000;
 }

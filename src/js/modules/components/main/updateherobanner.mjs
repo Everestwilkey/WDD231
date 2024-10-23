@@ -1,5 +1,5 @@
-import parkInfoTemplate from "../templates/HeaderTemplate.mjs";
-import setHeaderInfo from "./setheaderinfo.mjs";
+import parkInfoTemplate from "../../templates/HeaderTemplate.mjs";
+import setHeaderInfo from "../parkpage/setheaderinfo.mjs";
 
 
 

@@ -1,7 +1,7 @@
 
-import CreateCards from "./modules/components/createCards.mjs";
-import setfooter from "./modules/components/setfooter.mjs";
-import updateHeroSection from "./modules/components/updateherobanner.mjs";
+import CreateCards from "./modules/components/parkpage/createCards.mjs";
+import setfooter from "./modules/components/main/setfooter.mjs";
+import updateHeroSection from "./modules/components/main/updateherobanner.mjs";
 import { createParkInfoLinks } from "./modules/info/parkinfolinks.mjs";
 import { getParkData } from "./modules/info/parkService.mjs";
 import footerTemplate from "./modules/templates/footer.mjs";

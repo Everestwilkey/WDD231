@@ -1,4 +1,4 @@
-import footerTemplate from "../templates/footer.mjs"
+import footerTemplate from "../../templates/footer.mjs"
 
 
 
