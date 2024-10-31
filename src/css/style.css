@@ -137,15 +137,6 @@ a:hover {
 
 /* Title and logo styling */
 
-.site-title {
-  display: flex;
-  align-items: center;
-}
-.site-title > span {
-  font-size: 1rem;
-  margin-left: 0.3em;
-}
-
 .logo {
   height: 0;
   width: 0;
@@ -178,9 +169,12 @@ svg {
 .global-header {
   background-color: var(--bs-black);
   color: white;
-  display: flex;
+
   justify-content: space-between;
   fill: white;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  display: grid;
 }
 
 .global-header a:link,
@@ -198,6 +192,7 @@ svg {
 .global-header__right {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 .global-header__right .search-icon {
   padding: 0 1rem;
@@ -213,6 +208,54 @@ svg {
   align-items: center;
   text-transform: uppercase;
   border-left: 1px solid var(--bs-grey-5);
+  grid-row: 1;
+}
+.site-title {
+  display: flex;
+  align-items: center;
+}
+.site-title > span {
+  font-size: 1rem;
+  margin-left: 0.3em;
+}
+.global-nav {
+  width: 100%;
+  grid-column: 1/3;
+  border-top: 1px solid #333;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+
+.global-nav button {
+  background-color: transparent;
+  border: 0;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.global-nav svg {
+  --icon-color: white;
+}
+
+.global-nav__toggle--closed {
+  display: flex;
+  align-items: center;
+}
+.global-nav__toggle--open {
+  display: none;
+  align-items: center;
+}
+
+.global-nav__toggle[aria-expanded="true"] .global-nav__toggle--closed {
+  display: none;
+}
+.global-nav__toggle[aria-expanded="true"] .global-nav__toggle--open {
+  display: flex;
+}
+
+.global-nav.show {
+  max-height: 1000px;
 }
 
 /* Hero banner */

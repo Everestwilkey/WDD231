@@ -5,9 +5,7 @@ import updateHeroSection from "./modules/components/main/updateherobanner.mjs";
 import { createParkInfoLinks } from "./modules/info/parkinfolinks.mjs";
 import { getParkData } from "./modules/info/parkService.mjs";
 import footerTemplate from "./modules/templates/footer.mjs";
-
-
-
+import menuToggle from "./modules/components/main/menue-toggle.mjs";
 async function init() {
   
   const parkData =  await getParkData();
@@ -21,6 +19,7 @@ async function init() {
   updateHeroSection(parkData)
   CreateCards(parkinfo)
   setfooter(parkData)
+  menuToggle()
 }
 
 
