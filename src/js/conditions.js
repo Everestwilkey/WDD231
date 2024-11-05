@@ -12,6 +12,7 @@ import creatVisitor from "./modules/components/conditions/visitorCreate.mjs";
 import createAlert from "./modules/components/conditions/alertscreate.mjs";
 import createActivites from "./modules/components/conditions/activities.mjs";
 import { getActivities } from "./modules/info/conditions/getactivities.mjs";
+import menuToggle from "./modules/components/main/menue-toggle.mjs";
 
 
 
@@ -27,6 +28,7 @@ async function init() {
   creatVisitor(visitor);
   createActivites(activities);
   setfooter(parkData);
+  menuToggle()
 }
 
 
