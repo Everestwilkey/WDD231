@@ -1,4 +1,3 @@
-import { resolve } from "path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
@@ -8,9 +7,9 @@ export default defineConfig({
     outDir: "../dist",
     rollupOptions: {
       input: {
-        main: resolve(__dirname, "src/index.html"),
-        conditions: resolve(__dirname, "src/conditions.html")
-      }
-    }
-  }
+        main: "index.html",
+        conditions: "conditions.html",
+      },
+    },
+  },
 });
