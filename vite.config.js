@@ -2,14 +2,15 @@ import { resolve } from "path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  root: "src",
-  build: {
+  root: "src/",
+
+  bbuild: {
     outDir: "../dist",
     rollupOptions: {
       input: {
         main: resolve(__dirname, "src/index.html"),
-        conditions: resolve(__dirname, "src/conditions.html"),
-      },
-    },
-  },
+        conditions: resolve(__dirname, "src/conditions.html")
+      }
+    }
+  }
 });
