@@ -6,6 +6,7 @@ import { createParkInfoLinks } from "./modules/info/parkinfolinks.mjs";
 import { getParkData } from "./modules/info/parkService.mjs";
 import footerTemplate from "./modules/templates/footer.mjs";
 import menuToggle from "./modules/components/main/menue-toggle.mjs";
+import listToggle from "./modules/components/main/menuListItem.mjs";
 async function init() {
   
   const parkData =  await getParkData();
@@ -20,6 +21,7 @@ async function init() {
   CreateCards(parkinfo)
   setfooter(parkData)
   menuToggle()
+  listToggle()
 }
 
 
