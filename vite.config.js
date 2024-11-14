@@ -4,7 +4,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
   root: "src/",
 
-  bbuild: {
+  build: {
     outDir: "../dist",
     rollupOptions: {
       input: {
