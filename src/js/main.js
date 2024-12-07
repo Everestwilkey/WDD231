@@ -8,15 +8,14 @@ import footerTemplate from "./modules/templates/footer.mjs";
 import menuToggle from "./modules/components/main/menue-toggle.mjs";
 import listToggle from "./modules/components/main/menuListItem.mjs";
 async function init() {
-  
   const parkData =  await getParkData();
   var parkinfo = await createParkInfoLinks();
-  function setParkIntro(data) {
-    const introEl = document.querySelector(".intro");
-    introEl.innerHTML = `<h1>${parkData.fullName}</h1>
-    <p>${parkData.description}</p>`;
-  }
-  setParkIntro(parkData)
+  // function setParkIntro(data) {
+  //   const introEl = document.querySelector(".intro");
+  //   introEl.innerHTML = `<h1>${parkData.fullName}</h1>
+  //   <p>${parkData.description}</p>`;
+  // }
+  // setParkIntro(parkData)
   updateHeroSection(parkData)
   CreateCards(parkinfo)
   setfooter(parkData)

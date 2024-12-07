@@ -15,3 +15,17 @@ export  async function getParkData(parkcode = "yell"){
    console.log(park);
    return park.data[0]
 }
+export async function getJson(url) {
+  const options = {
+    method: "GET",
+    headers: {
+      "X-Api-Key": apikey
+    }
+  };
+  let data = {};
+  const response = await fetch(baseUrl + url, options);
+  if (response.ok) {
+    data = await response.json();
+  } else throw new Error("response not ok");
+  return data;
+}
