@@ -584,90 +584,193 @@ summary {
   background-color: #f9f9f9;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+/* Root Variables */
+:root {
+  --bs-gray-400: #ccc;
+  --bs-gray-300: #ddd;
+}
+
+/* Visitor Center Name */
 .vc-name {
   border-bottom: 1px solid var(--bs-gray-400);
   padding-bottom: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding-left: 1em; /* Add padding to align text */
 }
+
 .vc-name svg {
-  width: 1em;
-  height: 1em;
+  width: 1.5em;
+  height: 1.5em;
+  fill: black;
+  background: transparent;
 }
+
+/* Visitor Center Info Section */
+.vc-info {
+  margin: 2em 1em; /* Add horizontal margin */
+  padding: 1em;
+  background-color: #f9f9f9;
+  border: 1px solid var(--bs-gray-300);
+  border-radius: 0.5em;
+}
+
 .vc-info figure {
-  margin: 1em 3em;
+  display: block;
+  margin: 1.5em auto; /* Center figure with auto margin */
+  text-align: center;
+  max-width: 90%;
 }
+
+.vc-info img {
+  max-width: 100%;
+  border-radius: 0.5em;
+}
+
 .vc-info figcaption {
-  font-size: 0.8em;
+  font-size: 0.9em;
+  margin-top: 0.5em;
+  text-align: center;
+  padding: 0.5em 1em;
 }
+
 .vc-info figcaption > span {
   display: block;
   font-size: 0.8em;
   font-style: italic;
 }
 
-.vc-details-list svg,
-.vc-gallery svg {
-  width: 1.25rem;
-  height: 1.25rem;
-  margin-right: 1rem;
-  fill: black;
+/* Details Section */
+.vc-details-list {
+  margin: 2em 1em;
+  padding: 1em;
+  background-color: #f9f9f9;
+  border: 1px solid var(--bs-gray-300);
+  border-radius: 0.5em;
 }
+
 .vc-details-list summary {
   display: flex;
   align-items: center;
   text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: bold;
   cursor: pointer;
   position: relative;
+  margin: 1em 0;
+  padding: 0.75em 1em;
+  border: 1px solid var(--bs-gray-300);
+  border-radius: 0.25em;
+  background-color: #fff;
 }
 
+.vc-details-list svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 1rem;
+  fill: black;
+  background: transparent;
+}
+
+.vc-details-list summary::marker,
+.vc-details-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.vc-details-list summary::after {
+  content: "";
+  position: absolute;
+  right: 1rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-image: url("arrow.svg"); /* Replace with correct path */
+  background-size: 1.25rem 1.25rem;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease;
+}
+
+.vc-details-list details[open] > summary::after {
+  transform: rotate(180deg);
+}
+
+/* Amenities Section */
 #vcAmenities ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
+
 #vcAmenities li {
   margin-bottom: 1em;
+  font-size: 0.9rem;
+}
+
+/* Image Gallery */
+.vc-gallery {
+  margin: 2em 1em;
+  padding: 1em;
+  background-color: #f9f9f9;
+  border: 1px solid var(--bs-gray-300);
+  border-radius: 0.5em;
 }
 
 .vc-gallery > h2 {
   text-transform: uppercase;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  padding-left: 1em;
 }
+
+.vc-gallery svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  background: transparent;
+}
+
 .vc-gallery ul {
   list-style: none;
   display: flex;
   gap: 1em;
   flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
 }
 
-/* This is an example of how to clip an image into a square shape */
+.vc-gallery li {
+  flex: 1 0 calc(33.333% - 1em); /* 3 images per row with gap */
+  max-width: 265px;
+}
+
 .vc-gallery img {
-  width: 265px; /* set the width to the desired size */
-  height: 265px; /* set the height to the same value as the width */
+  width: 100%;
+  height: auto;
   object-fit: cover;
   object-position: center;
+  border-radius: 0.5em;
 }
 
-/* Optional re-styling of the open/closed markers for the details elements */
+/* Responsive Design */
+@media (max-width: 768px) {
+  .vc-gallery ul {
+    flex-direction: column;
+    align-items: center;
+  }
 
-/* First we have to hide the default markers */
-.vc-details-list summary::marker,
-.vc-details-list summary::-webkit-details-marker {
-  display: none;
-}
-/* then we can use ::after to insert in a new image and position it to the right place */
-.vc-details-list summary::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  width: 1.25rem;
-  height: 1.25rem;
-  background-image: url("../images/arrow.svg");
-  background-size: 1.25rem 1.25rem;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-}
+  .vc-gallery li {
+    flex: 1 0 100%; /* Full width on smaller screens */
+    max-width: 100%;
+  }
 
-/* when you open a details element the browser automatically adds an "open" attribute to the detail.
-We can use this with some fancy selector work to change the background position of the arrow image to show the open state. */
-.vc-details-list details[open] > summary::after {
-  transform: rotate(180deg);
+  .vc-info figure {
+    margin: 1em;
+  }
 }

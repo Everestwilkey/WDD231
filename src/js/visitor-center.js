@@ -1,7 +1,9 @@
 import setfooter from "./modules/components/main/setfooter.mjs";
+import updateHeroSection from "./modules/components/main/updateherobanner.mjs";
 import { getParkData } from "./modules/info/parkService.mjs";
 import getParkVisitorCenterDetails from "./modules/info/VistorCenter/GetParkVisitorCenter.mjs";
-import { setVisitorCenterContent } from "./modules/templates/visitorheadertemplate.mjs";
+import { populateVisitorCenterInfo } from "./modules/templates/visitorheadertemplate.mjs";
+
 
 export default function getParameter(param) {
     const search = window.location.search; // Get the query string
@@ -15,9 +17,9 @@ async function initvistor() {
     const id = getParameter("id");
     const vistorcenter = await getParkVisitorCenterDetails(id)
     console.log("here is the info")
-    console.log(vistorcenter)
-    // setVisitorCenterContent(vistorcenter)
-    
+    console.log(vistorcenter.name)
+    populateVisitorCenterInfo(vistorcenter)
+    updateHeroSection(parkData)
     setfooter(parkData);
 }
 
