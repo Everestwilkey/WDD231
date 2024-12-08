@@ -584,12 +584,6 @@ summary {
   background-color: #f9f9f9;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-/* Root Variables */
-:root {
-  --bs-gray-400: #ccc;
-  --bs-gray-300: #ddd;
-}
-
 /* Visitor Center Name */
 .vc-name {
   border-bottom: 1px solid var(--bs-gray-400);
@@ -612,7 +606,7 @@ summary {
 
 /* Visitor Center Info Section */
 .vc-info {
-  margin: 2em 1em; /* Add horizontal margin */
+  margin: 2em 1em;
   padding: 1em;
   background-color: #f9f9f9;
   border: 1px solid var(--bs-gray-300);
@@ -621,7 +615,7 @@ summary {
 
 .vc-info figure {
   display: block;
-  margin: 1.5em auto; /* Center figure with auto margin */
+  margin: 1.5em auto;
   text-align: center;
   max-width: 90%;
 }
@@ -653,6 +647,21 @@ summary {
   border-radius: 0.5em;
 }
 
+.vc-details-list details {
+  margin-bottom: 1rem;
+  border: 1px solid var(--bs-gray-300);
+  border-radius: 0.5em;
+  background-color: #fff;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.vc-details-list details[open] {
+  padding-bottom: 1em; /* Ensure padding for open sections */
+  background-color: #f9f9f9; /* Highlight background */
+  border-color: var(--bs-gray-400); /* Darker border for open sections */
+}
+
 .vc-details-list summary {
   display: flex;
   align-items: center;
@@ -661,13 +670,25 @@ summary {
   font-weight: bold;
   cursor: pointer;
   position: relative;
-  margin: 1em 0;
-  padding: 0.75em 1em;
-  border: 1px solid var(--bs-gray-300);
-  border-radius: 0.25em;
-  background-color: #fff;
+  padding: 1em; /* Add consistent padding */
+  margin: 0;
+  background-color: #fff; /* Background for the summary */
+  border-bottom: 1px solid var(--bs-gray-300); /* Separator line */
+  transition: background-color 0.3s ease;
+  border-radius: 0.5em; /* Round corners for the summary */
 }
 
+.vc-details-list summary:hover {
+  background-color: #e9e9e9; /* Subtle hover effect */
+}
+
+/* Icon Alignment in Summary */
+.vc-details-list summary svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: black;
+  margin-right: 0.5rem;
+}
 .vc-details-list svg {
   width: 1.25rem;
   height: 1.25rem;
@@ -681,20 +702,30 @@ summary {
   display: none;
 }
 
+/* Custom Arrow Indicator for Dropdown */
 .vc-details-list summary::after {
   content: "";
   position: absolute;
   right: 1rem;
   width: 1.25rem;
   height: 1.25rem;
-  background-image: url("arrow.svg"); /* Replace with correct path */
+  background-image: url("../images/arrow.svg"); /* Ensure correct path */
   background-size: 1.25rem 1.25rem;
   background-repeat: no-repeat;
+  background-position: center;
   transition: transform 0.3s ease;
 }
 
 .vc-details-list details[open] > summary::after {
-  transform: rotate(180deg);
+  transform: rotate(180deg); /* Rotate arrow on open */
+}
+
+/* Content Inside Details */
+.vc-details-list details > *:not(summary) {
+  padding: 1em 1.5em;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #333;
 }
 
 /* Amenities Section */
@@ -702,14 +733,31 @@ summary {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* Responsive grid */
+  gap: 1rem; /* Space between items */
 }
 
 #vcAmenities li {
-  margin-bottom: 1em;
+  background-color: #f9f9f9;
+  border: 1px solid var(--bs-gray-300);
+  border-radius: 0.5em;
+  padding: 1em;
   font-size: 0.9rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for card effect */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Image Gallery */
+#vcAmenities li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Gallery Section */
 .vc-gallery {
   margin: 2em 1em;
   padding: 1em;
