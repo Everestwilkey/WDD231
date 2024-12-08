@@ -10,8 +10,14 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "src/index.html"), // Main entry point
         conditions: resolve(__dirname, "src/conditions.html"), // Additional page
-        visitorCenter: resolve(__dirname, "src/visitor-center.html"), // Add any additional pages here
+        visitorCenter: resolve(__dirname, "src/visitor-center.html"), // Additional page
       },
     },
   },
+  resolve: {
+    alias: {
+      "@images": resolve(__dirname, "src/images"), // Alias for the images folder
+    },
+  },
+  assetsInclude: ["**/*.svg"], // Ensure SVGs are included in the build process
 });
